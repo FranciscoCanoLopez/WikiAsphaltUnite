@@ -1,0 +1,45 @@
+﻿<main class="login-unite-container">
+    <div class="unite-banner">
+        <img src="fondo.png" alt="Asphalt Unite Banner">
+    </div>
+
+    <div class="unite-form-side">
+        <div id="seccion-login">
+            <h1 class="unite-title">INICIA SESION</h1>
+            <hr class="unite-divider">
+            <form action="php/login_usuario_db.php" method="POST" class="unite-form">
+                <label>USUARIO</label>
+                <input type="text" name="correo" class="unite-input">
+                
+                <label>CONTRASEÑA</label>
+                <input type="password" name="contrasena" class="unite-input">
+                
+                <button type="submit" class="unite-btn">ENTRAR</button>
+            </form>
+            <hr class="unite-divider">
+            <h1 class="unite-title-small">¿NO TIENES CUENTA?</h1>
+            <a href="@Url.Action("Registrarse", "Acceso")" class="unite-btn" style="display: inline-block; text-decoration: none;">CREAR</a>
+        </div>
+
+        <div id="seccion-registro" style="display:none;">
+            <h1 class="unite-title">CREAR CUENTA</h1>
+            <hr class="unite-divider">
+            <form action="php/registro_usuario_be.php" method="POST" class="unite-form">
+                <label>USUARIO</label>
+                <input type="text" name="usuario" class="unite-input">
+                
+                <label>CORREO ELECTRONICO</label>
+                <input type="email" name="correo" class="unite-input">
+                
+                <label>CONTRASEÑA</label>
+                <input type="password" name="contrasena" class="unite-input">
+                
+                <label>CONFIRMAR CONTRASEÑA</label>
+                <input type="password" name="confirmar_contrasena" class="unite-input">
+                
+                <hr class="unite-divider">
+                <button type="submit" class="unite-btn">CREAR</button>
+            </form>
+        </div>
+    </div>
+</main>

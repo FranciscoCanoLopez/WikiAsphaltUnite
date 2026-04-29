@@ -1,0 +1,46 @@
+﻿@model Usuario
+@{
+    Layout = null; // Para que no use el menú por defecto de ASP.NET
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>REGISTRARSE - UNITE</title>
+    <link rel="stylesheet" href="~/css/estilos.css">
+    </head>
+    <body>
+        <main class="login-unite-container">
+            <div class="unite-banner">
+                <img src="~/images/fondo.png" alt="Asphalt Banner">
+                </div>
+
+                <div class="unite-form-side">
+                    <h1 class="unite-title">CREAR CUENTA</h1>
+                    <hr class="unite-divider">
+
+                    <form asp-action="Registrarse" method="post" class="unite-form">
+                        <label>NOMBRE COMPLETO</label>
+                        <input type="text" asp-for="nombre_usuario" class="unite-input" required>
+                
+                            <label>CORREO ELECTRÓNICO</label>
+                            <input type="email" asp-for="email" class="unite-input" required>
+                
+                                <label>USUARIO</label>
+                                <input type="text" asp-for="nombre_usuario" class="unite-input" required>
+                
+                                    <label>CONTRASEÑA</label>
+                                    <input type="password" asp-for="password_hash" class="unite-input" required>
+                
+                                        <hr class="unite-divider">
+                                        <button type="submit" class="unite-btn">REGISTRARME</button>
+                                    </form>
+
+                                    <p style="margin-top: 20px;">
+                                        ¿Ya tienes cuenta? <a href="@Url.Action("Index", "Acceso")" style="color: #a800ff; font-weight: bold;">INICIA SESIÓN</a>
+                                    </p>
+                                </div>
+                            </main>
+                        </body>
+                    </html>
