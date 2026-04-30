@@ -1,0 +1,132 @@
+﻿/* Estilo Asphalt Unite Neon */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    /* Fondo con el patrón de hexágonos y neón */
+    background: linear-gradient(rgba(10, 5, 20, 0.85), rgba(10, 5, 20, 0.85)), url('../images/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.unite-container {
+    display: flex;
+    width: 1150px; /* Escalado de ventana a tamaño extendido */
+    height: 700px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 3px solid #bc00ff;
+    border-radius: 15px;
+    /* Efecto Neón Exterior */
+    box-shadow: 0 0 25px rgba(188, 0, 255, 0.6), inset 0 0 10px rgba(188, 0, 255, 0.2);
+    overflow: hidden;
+    animation: neon-glow 3s infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        box-shadow: 0 0 15px rgba(188, 0, 255, 0.5);
+    }
+
+    to {
+        box-shadow: 0 0 35px rgba(188, 0, 255, 0.9);
+    }
+}
+
+.unite-banner {
+    flex: 1.5; /* Banner más amplio para lucir el arte del juego */
+    background-color: #000;
+    position: relative;
+}
+
+    .unite-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Efecto de degradado neón sobre la imagen */
+    .unite-banner::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(188, 0, 255, 0.1));
+    }
+
+.unite-form-side {
+    flex: 1;
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.unite-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1a1a1a;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin: 10px 0;
+}
+
+.unite-divider {
+    border: none;
+    border-top: 4px dotted #bc00ff;
+    margin: 25px 0;
+}
+
+/* Inputs Estilo Unite */
+.unite-group label {
+    display: block;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.unite-input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #bc00ff;
+    border-radius: 40px;
+    outline: none;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    .unite-input:focus {
+        box-shadow: 0 0 15px rgba(188, 0, 255, 0.3);
+        background-color: #fdf6ff;
+    }
+
+/* Botones Ovalados Neón */
+.unite-btn {
+    background: #bc00ff;
+    color: white;
+    border: none;
+    padding: 14px 60px;
+    border-radius: 35px;
+    font-weight: 900;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(188, 0, 255, 0.4);
+}
+
+    .unite-btn:hover {
+        background: #d600ff;
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(188, 0, 255, 0.7);
+    }

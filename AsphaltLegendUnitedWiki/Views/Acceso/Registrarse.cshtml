@@ -1,46 +1,41 @@
 ﻿@model Usuario
 @{
-    Layout = null; // Para que no use el menú por defecto de ASP.NET
+    Layout = null;
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>REGISTRARSE - UNITE</title>
-    <link rel="stylesheet" href="~/css/estilos.css">
-    </head>
-    <body>
-        <main class="login-unite-container">
-            <div class="unite-banner">
-                <img src="~/images/fondo.png" alt="Asphalt Banner">
-                </div>
+<link rel="stylesheet" href="~/css/estilos.css">
 
-                <div class="unite-form-side">
-                    <h1 class="unite-title">CREAR CUENTA</h1>
-                    <hr class="unite-divider">
+    <div class="unite-container">
+        <div class="unite-banner">
+            <img src="~/images/Fondo_1.AVIF" alt="Asphalt Unite Banner">
+            </div>
 
-                    <form asp-action="Registrarse" method="post" class="unite-form">
-                        <label>NOMBRE COMPLETO</label>
+            <div class="unite-form-side">
+                <h1 class="unite-title">CREAR CUENTA</h1>
+                <hr class="unite-divider">
+
+                <form asp-action="Registrarse" method="post">
+                    <div class="unite-group">
+                        <label>USUARIO</label>
                         <input type="text" asp-for="nombre_usuario" class="unite-input" required>
-                
-                            <label>CORREO ELECTRÓNICO</label>
+                        </div>
+                        <div class="unite-group">
+                            <label>CORREO ELECTRONICO</label>
                             <input type="email" asp-for="email" class="unite-input" required>
-                
-                                <label>USUARIO</label>
-                                <input type="text" asp-for="nombre_usuario" class="unite-input" required>
-                
-                                    <label>CONTRASEÑA</label>
-                                    <input type="password" asp-for="password_hash" class="unite-input" required>
-                
-                                        <hr class="unite-divider">
-                                        <button type="submit" class="unite-btn">REGISTRARME</button>
-                                    </form>
-
-                                    <p style="margin-top: 20px;">
-                                        ¿Ya tienes cuenta? <a href="@Url.Action("Index", "Acceso")" style="color: #a800ff; font-weight: bold;">INICIA SESIÓN</a>
-                                    </p>
+                            </div>
+                            <div class="unite-group">
+                                <label>CONTRASEÑA</label>
+                                <input type="password" asp-for="password_hash" class="unite-input" required>
                                 </div>
-                            </main>
-                        </body>
-                    </html>
+                                <div class="unite-group">
+                                    <label>CONFIRMAR CONTRASEÑA</label>
+                                    <input type="password" name="confirmar_contrasena" class="unite-input" required>
+                                </div>
+
+                                <hr class="unite-divider">
+                                <div style="text-align: center;">
+                                    <button type="submit" class="unite-btn">CREAR</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
