@@ -1,0 +1,146 @@
+﻿@{
+    Layout = null; // No usamos el layout general para que esta pantalla sea independiente
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuración de Red - Asphalt Wiki</title>
+    <style>
+            body {
+                background-color: #0f0f0f;
+                color: #ffffff;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .config-card {
+                background: #1a1a1a;
+                padding: 2.5rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+                width: 100%;
+                max-width: 420px;
+                text-align: center;
+                border: 1px solid #333;
+            }
+
+            .logo-title {
+                font-size: 1.6rem;
+                font-weight: 900;
+                color: #a855f7; /* Morado Asphalt/VS */
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+
+            h2 {
+                margin-bottom: 0.5rem;
+                font-size: 1.3rem;
+                color: #fff;
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: #aaaaaa;
+                margin-bottom: 2rem;
+                line-height: 1.4;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 0.6rem;
+                font-size: 0.85rem;
+                color: #888;
+                font-weight: 600;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 0.9rem;
+                background: #252525;
+                border: 2px solid #333;
+                border-radius: 8px;
+                color: #fff;
+                box-sizing: border-box;
+                outline: none;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+            }
+
+                input[type="text"]:focus {
+                    border-color: #a855f7;
+                    background: #2a2a2a;
+                }
+
+            .btn-submit {
+                width: 100%;
+                padding: 1rem;
+                background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+                border: none;
+                border-radius: 8px;
+                color: white;
+                font-weight: bold;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                text-transform: uppercase;
+            }
+
+                .btn-submit:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
+                }
+
+            .error-msg {
+                color: #ff4d4d;
+                background: rgba(255, 77, 77, 0.1);
+                padding: 0.8rem;
+                border-radius: 6px;
+                margin-bottom: 1.5rem;
+                font-size: 0.85rem;
+                border-left: 4px solid #ff4d4d;
+            }
+    </style>
+</head>
+<body>
+    <div class="config-card">
+        <div class="logo-title">ASPHALT WIKI</div>
+        <h2>Configuración de Red</h2>
+        <p>
+            Para acceder a la base de datos remota, ingresa la dirección IP de la computadora donde corre el contenedor Docker.
+        </p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error-msg">
+                <strong>Error:</strong> @ViewBag.Error
+            </div>
+        }
+
+        <form action="/NetworkConfig/SetupIP" method="post">
+            <div class="form-group">
+                <label for="serverIp">DIRECCIÓN IP DEL SERVIDOR (HOST)</label>
+                <input type="text"
+                       id="serverIp"
+                       name="serverIp"
+                       placeholder="Ejemplo: 192.168.1.65"
+                       required
+                       autocomplete="off" />
+            </div>
+            <button type="submit" class="btn-submit">Conectar a Base de Datos</button>
+        </form>
+    </div>
+</body>
+</html>

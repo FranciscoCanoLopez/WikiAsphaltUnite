@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AsphaltLegendUnitedWiki.Data;
 using AsphaltLegendUnitedWiki.Models;
+// Asegúrate de agregar el namespace donde creaste la clase IpRequiredAttribute
+// usando AsphaltLegendUnitedWiki.Filters; 
 
 namespace AsphaltLegendUnitedWiki.Controllers
 {
+    [IpRequired] // <--- [AÑADIDO] Protege todas las acciones de este controlador
     public class UsuariosController : Controller
     {
         private readonly AsphaltDbContext _context;
@@ -22,23 +25,20 @@ namespace AsphaltLegendUnitedWiki.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
+            // Esta consulta ahora usará la IP dinámica configurada en Program.cs
             return View(await _context.Usuarios.ToListAsync());
         }
+
+        // El resto del código permanece igual...
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var usuario = await _context.Usuarios
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
+            if (usuario == null) return NotFound();
 
             return View(usuario);
         }
