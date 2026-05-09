@@ -25,8 +25,8 @@ namespace AsphaltLegendUnitedWiki.Controllers
                 return View();
             }
 
-            // 2. Validación de red local (Para que sea de tu mismo segmento)
-            // Cambia "192.168.1." por el que te salga en el ipconfig
+            // 2. Validación de red local 
+            // Cambia "192.168." por el que te salga en el ipconfig
             if (!serverIp.StartsWith("10.12.13.") && !serverIp.StartsWith("192.168.") && !serverIp.Equals("127.0.0.1"))
             {
                 ViewBag.Error = "Debes ingresar una IP válida (10.12.13.xxx o 192.168.x.xxx)";

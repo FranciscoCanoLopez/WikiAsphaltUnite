@@ -5,8 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using BCrypt.Net;
 using Microsoft.AspNetCore.Identity;
 using AsphaltLegendUnitedWiki.Data;
-// Asegúrate de incluir el namespace donde definiste tu filtro
-// using AsphaltLegendUnitedWiki.Filters; 
+
 
 namespace AsphaltLegendUnitedWiki.Controllers
 {
